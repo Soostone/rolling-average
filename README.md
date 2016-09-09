@@ -1,6 +1,7 @@
-# Rolling Averages
+# Rolling Average
+[![Build Status](https://travis-ci.org/Soostone/rolling-average.svg?branch=master)](https://travis-ci.org/Soostone/rolling-average)
 
-`rolling-averages` is a simple library for calculating rolling
+`rolling-average` is a simple library for calculating rolling
 avergaes. It keeps a rolling window of samples and calculates averages
 from them.
 
