@@ -40,7 +40,7 @@ data RollingAvg a = RollingAvg {
 
 -------------------------------------------------------------------------------
 mkRavg :: (Num a) => Int -> RollingAvg a
-mkRavg windowSize = RollingAvg windowSize mempty 0
+mkRavg windowSize = RollingAvg windowSize Seq.empty 0
 
 
 -------------------------------------------------------------------------------
