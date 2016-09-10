@@ -54,16 +54,16 @@ ravg RollingAvg {..}
 
 -------------------------------------------------------------------------------
 ravgAdd :: (Num a) => RollingAvg a -> a -> RollingAvg a
-ravgAdd ravg@RollingAvg {..} x =
-  ravg { ravgSamples = Seq.take ravgWindowSize (x Seq.<| ravgSamples)
-       , ravgSum = sum'
-       }
+ravgAdd ra@RollingAvg {..} x =
+  ra { ravgSamples = Seq.take ravgWindowSize (x Seq.<| ravgSamples)
+     , ravgSum = sum'
+     }
   where
     willTruncate = Seq.length ravgSamples == ravgWindowSize
     sum'
-      | willTruncate = ravgSum + x - last
+      | willTruncate = ravgSum + x - oldest
       | otherwise = ravgSum + x
-    last = fromMaybe 0 (slast ravgSamples)
+    oldest = fromMaybe 0 (slast ravgSamples)
 
 
 -------------------------------------------------------------------------------
